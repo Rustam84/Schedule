@@ -1,12 +1,12 @@
-#blockSubject1{
+#blockSubjectShow{
     display:block;
 }
-#blockSubject2{
+#blockSubjectAdd{
     display:none;
 }
-#blockSubject3{
+#blockSubjectUpdate{
     display:none;
 }
-#blockSubject4{
+#blockSubjectDelete{
     display:none;
 }

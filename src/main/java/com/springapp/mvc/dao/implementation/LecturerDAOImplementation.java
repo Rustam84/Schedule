@@ -11,8 +11,11 @@ import java.util.List;
 @Repository
 public class LecturerDAOImplementation implements LecturerDAO {
 
-    @Autowired
     private SessionFactory sessionFactory;
+
+    public LecturerDAOImplementation(SessionFactory sessionFactory) {
+        this.sessionFactory = sessionFactory;
+    }
 
     @Override
     public List<Lecturer> getListOfLecturers() {

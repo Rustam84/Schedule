@@ -1,12 +1,12 @@
-#blockLecturer1{
+#blockLecturerShow{
     display:block;
 }
-#blockLecturer2{
+#blockLecturerAdd{
     display:none;
 }
-#blockLecturer3{
+#blockLecturerUpdate{
     display:none;
 }
-#blockLecturer4{
+#blockLecturerDelete{
     display:none;
 }

@@ -23,13 +23,13 @@
     </div>
     <div class="row">
         <div class="col-3">
-            <button class="btn btn-primary btn-lg btn-block" id="button1">Просмотреть</button>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonShowLecturer">Просмотреть</button>
             <br/>
-            <button class="btn btn-primary btn-lg btn-block" id="button2">Добавить</button>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonAddLecturer">Добавить</button>
             <br/>
-            <button class="btn btn-primary btn-lg btn-block" id="button3">Редактировать</button>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonUpdateLecturer">Редактировать</button>
             <br/>
-            <button class="btn btn-primary btn-lg btn-block" id="button4">Удалить</button>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonDeleteLecturer">Удалить</button>
             <br/>
             <form action="/">
                 <button class="btn btn-danger btn-lg btn-block">Назад</button>
@@ -37,9 +37,9 @@
             </form>
         </div>
         <div class="col-9">
-            <div id="blockLecturer1">
+            <div id="blockLecturerShow">
             </div>
-            <div id="blockLecturer2">
+            <div id="blockLecturerAdd">
                 <div class="alert alert-success fade show" id="successAdd">
                     <strong>Успех!</strong> Данные добавлены.
                 </div>
@@ -55,7 +55,7 @@
                 </form>
                 <button class="btn btn-primary" id="addLecturer">Добавить</button>
             </div>
-            <div id="blockLecturer3">
+            <div id="blockLecturerUpdate">
                 <div class="alert alert-success fade show" id="successUpdate">
                     <strong>Успех!</strong> Данные обновлены.
                 </div>
@@ -76,7 +76,7 @@
                 </form>
                 <button class="btn btn-primary" id="updateLecturer">Обновить</button>
             </div>
-            <div id="blockLecturer4">
+            <div id="blockLecturerDelete">
                 <div class="alert alert-success fade show" id="successDelete">
                     <strong>Успех!</strong> Данные удалены.
                 </div>

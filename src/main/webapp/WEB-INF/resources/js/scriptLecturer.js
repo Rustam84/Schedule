@@ -1,26 +1,26 @@
-$("#button1").click(function () {
-    $("#blockLecturer1").css('display', 'block');
-    $("#blockLecturer2").css('display', 'none');
-    $("#blockLecturer3").css('display', 'none');
-    $("#blockLecturer4").css('display', 'none');
+$("#buttonShowLecturer").click(function () {
+    $("#blockLecturerShow").css('display', 'block');
+    $("#blockLecturerAdd").css('display', 'none');
+    $("#blockLecturerUpdate").css('display', 'none');
+    $("#blockLecturerDelete").css('display', 'none');
 });
-$("#button2").click(function () {
-    $("#blockLecturer1").css('display', 'none');
-    $("#blockLecturer2").css('display', 'block');
-    $("#blockLecturer3").css('display', 'none');
-    $("#blockLecturer4").css('display', 'none');
+$("#buttonAddLecturer").click(function () {
+    $("#blockLecturerShow").css('display', 'none');
+    $("#blockLecturerAdd").css('display', 'block');
+    $("#blockLecturerUpdate").css('display', 'none');
+    $("#blockLecturerDelete").css('display', 'none');
 });
-$("#button3").click(function () {
-    $("#blockLecturer1").css('display', 'none');
-    $("#blockLecturer2").css('display', 'none');
-    $("#blockLecturer3").css('display', 'block');
-    $("#blockLecturer4").css('display', 'none');
+$("#buttonUpdateLecturer").click(function () {
+    $("#blockLecturerShow").css('display', 'none');
+    $("#blockLecturerAdd").css('display', 'none');
+    $("#blockLecturerUpdate").css('display', 'block');
+    $("#blockLecturerDelete").css('display', 'none');
 });
-$("#button4").click(function () {
-    $("#blockLecturer1").css('display', 'none');
-    $("#blockLecturer2").css('display', 'none');
-    $("#blockLecturer3").css('display', 'none');
-    $("#blockLecturer4").css('display', 'block');
+$("#buttonDeleteLecturer").click(function () {
+    $("#blockLecturerShow").css('display', 'none');
+    $("#blockLecturerAdd").css('display', 'none');
+    $("#blockLecturerUpdate").css('display', 'none');
+    $("#blockLecturerDelete").css('display', 'block');
 });
 function fillUpdateInputs(id) {
     $("#idUpdate").val(id);
@@ -157,7 +157,7 @@ function updateTables() {
             tableShow += "</tbody></table>";
             tableUpdate += "</tbody></table>";
             tableDelete += "</tbody></table>";
-            $("#blockLecturer1").html(tableShow);
+            $("#blockLecturerShow").html(tableShow);
             $("#updateLecturerTable").html(tableUpdate);
             $("#deleteLecturerTable").html(tableDelete);
         }

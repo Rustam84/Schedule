@@ -12,7 +12,9 @@
     <style type="text/css">
         <%@include file="../resources/css/styleSubject.css"%>
     </style>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
+          integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
 <div class="container h-100">
@@ -21,150 +23,82 @@
     </div>
     <div class="row">
         <div class="col-3">
-            <button class="btn btn-primary btn-lg btn-block" id="button1">Просмотреть</button> <br />
-            <button class="btn btn-primary btn-lg btn-block" id="button2">Добавить</button> <br />
-            <button class="btn btn-primary btn-lg btn-block" id="button3">Редактировать</button> <br />
-            <button class="btn btn-primary btn-lg btn-block" id="button4">Удалить</button> <br />
+            <button class="btn btn-primary btn-lg btn-block" id="buttonShowSubject">Просмотреть</button>
+            <br/>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonAddSubject">Добавить</button>
+            <br/>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonUpdateSubject">Редактировать</button>
+            <br/>
+            <button class="btn btn-primary btn-lg btn-block" id="buttonDeleteSubject">Удалить</button>
+            <br/>
             <form action="/">
-                <button class="btn btn-danger btn-lg btn-block">Назад</button> <br />
+                <button class="btn btn-danger btn-lg btn-block">Назад</button>
+                <br/>
             </form>
         </div>
         <div class="col-9">
-            <div id="blockSubject1">
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Название предмета</th>
-                        <th>Сокращение</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td>Продвинутые методы программирования на Java</td>
-                        <td>Java</td>
-                    </tr>
-                    </tbody>
-                </table>
-            </div>
-            <div id="blockSubject2">
+            <div id="blockSubjectShow"></div>
+            <div id="blockSubjectAdd">
+                <div class="alert alert-success fade show" id="successAdd">
+                    <strong>Успех!</strong> Данные добавлены.
+                </div>
                 <form>
                     <div class="form-group">
-                        <label for="name">Введите название предмета  </label>
+                        <label for="name">Введите название предмета </label>
                         <input type="text" id="name" name="name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="abbr">Введите сокращённое нащвание предмета  </label>
-                        <input type="text" id="abbr" name="abbr" class="form-control">
+                        <label for="abbreviation">Введите сокращённое нащвание предмета </label>
+                        <input type="text" id="abbreviation" name="abbreviation" class="form-control">
                     </div>
                 </form>
-                <button class="btn btn-primary">Добавить</button>
+                <button class="btn btn-primary" id="addSubject">Добавить</button>
             </div>
-            <div id="blockSubject3">
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Название предмета</th>
-                        <th>Сокращение</th>
-                        <th>Обновить</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td id="nameUpdate1">Продвинутые методы программирования на Java</td>
-                        <td id="abbrUpdate1">Java</td>
-                        <td>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="update" value="1"> Обновить
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td id="nameUpdate2">Объектно-ориентированное программирование</td>
-                        <td id="abbrUpdate2">ООП</td>
-                        <td>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="update" value="2"> Обновить
-                            </label>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div id="blockSubjectUpdate">
+                <div class="alert alert-success fade show" id="successUpdate">
+                    <strong>Успех!</strong> Данные обновлены.
+                </div>
+                <div id="updateSubjectTable"></div>
                 <form>
                     <div class="form-group">
-                        <label for="idUpdate">ID предмета  </label>
+                        <label for="idUpdate">ID предмета </label>
                         <input type="text" id="idUpdate" name="id" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="nameUpdate">Введите название предмета  </label>
+                        <label for="nameUpdate">Введите название предмета </label>
                         <input type="text" id="nameUpdate" name="name" class="form-control">
                     </div>
                     <div class="form-group">
-                        <label for="abbrUpdate">Введите сокращённое название предмета  </label>
-                        <input type="text" id="abbrUpdate" name="abbr" class="form-control">
+                        <label for="abbreviationUpdate">Введите сокращённое название предмета </label>
+                        <input type="text" id="abbreviationUpdate" name="abbreviation" class="form-control">
                     </div>
                 </form>
-                <button class="btn btn-primary">Обновить</button>
+                <button class="btn btn-primary" id="updateSubject">Обновить</button>
             </div>
-            <div id="blockSubject4">
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Название предмета</th>
-                        <th>Сокращение</th>
-                        <th>Обновить</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td id="nameDelete1">Продвинутые методы программирования на Java</td>
-                        <td id="abbrDelete1">Java</td>
-                        <td>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="delete" value="1"> Удалить
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td id="nameDelete2">Объектно-ориентированное программрование</td>
-                        <td id="abbrDelete2">ООП</td>
-                        <td>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="delete" value="2"> Удалить
-                            </label>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+            <div id="blockSubjectDelete">
+                <div class="alert alert-success fade show" id="successDelete">
+                    <strong>Успех!</strong> Данные удалены.
+                </div>
+                <div id="deleteSubjectTable"></div>
                 <form>
                     <div class="form-group">
-                        <label for="idDelete">ID предмета  </label>
+                        <label for="idDelete">ID предмета </label>
                         <input type="text" id="idDelete" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="nameDelete">Название предмета  </label>
+                        <label for="nameDelete">Название предмета </label>
                         <input type="text" id="nameDelete" class="form-control" readonly>
                     </div>
                     <div class="form-group">
-                        <label for="abbrDelete">Сокращённое название предмета  </label>
-                        <input type="text" id="abbrDelete" class="form-control" readonly>
+                        <label for="abbreviationDelete">Сокращённое название предмета </label>
+                        <input type="text" id="abbreviationDelete" class="form-control" readonly>
                     </div>
                 </form>
-                <button class="btn btn-primary">Удалить</button>
+                <button class="btn btn-primary" id="deleteSubject">Удалить</button>
             </div>
         </div>
     </div>
 </div>
-<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js" integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN" crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js" integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q" crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js" integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl" crossorigin="anonymous"></script>
 <script>
     <%@include file="../resources/js/scriptSubject.js"%>
 </script>
