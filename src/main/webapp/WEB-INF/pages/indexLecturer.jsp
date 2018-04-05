@@ -40,6 +40,9 @@
             <div id="blockLecturer1">
             </div>
             <div id="blockLecturer2">
+                <div class="alert alert-success fade show" id="successAdd">
+                    <strong>Успех!</strong> Данные добавлены.
+                </div>
                 <form action="lecturer/add">
                     <div class="form-group">
                         <label for="surname">Введите фамилию преподавателя </label>
@@ -53,6 +56,9 @@
                 <button class="btn btn-primary" id="addLecturer">Добавить</button>
             </div>
             <div id="blockLecturer3">
+                <div class="alert alert-success fade show" id="successUpdate">
+                    <strong>Успех!</strong> Данные обновлены.
+                </div>
                 <div id="updateLecturerTable"></div>
                 <form>
                     <div class="form-group">
@@ -68,41 +74,13 @@
                         <input type="text" id="nameUpdate" name="name" class="form-control">
                     </div>
                 </form>
-                <button class="btn btn-primary">Обновить</button>
+                <button class="btn btn-primary" id="updateLecturer">Обновить</button>
             </div>
             <div id="blockLecturer4">
-                <table class="table table-bordered">
-                    <thead class="thead-dark">
-                    <tr>
-                        <th>ID</th>
-                        <th>Фамилия преподавателя</th>
-                        <th>Имя преподавателя</th>
-                        <th>Обновить</th>
-                    </tr>
-                    </thead>
-                    <tbody>
-                    <tr>
-                        <td>1</td>
-                        <td id="surnameDelete1">Епифанова</td>
-                        <td id="nameDelete1">Ирина</td>
-                        <td>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="delete" value="1"> Удалить
-                            </label>
-                        </td>
-                    </tr>
-                    <tr>
-                        <td>2</td>
-                        <td id="surnameDelete2">Латул</td>
-                        <td id="nameDelete2">Георгий</td>
-                        <td>
-                            <label class="btn btn-secondary">
-                                <input type="radio" name="delete" value="2"> Удалить
-                            </label>
-                        </td>
-                    </tr>
-                    </tbody>
-                </table>
+                <div class="alert alert-success fade show" id="successDelete">
+                    <strong>Успех!</strong> Данные удалены.
+                </div>
+                <div id="deleteLecturerTable"></div>
                 <form>
                     <div class="form-group">
                         <label for="idDelete">ID преподавателя </label>
@@ -117,20 +95,11 @@
                         <input type="text" id="nameDelete" class="form-control" readonly>
                     </div>
                 </form>
-                <button class="btn btn-primary">Удалить</button>
+                <button class="btn btn-primary" id="deleteLecturer">Удалить</button>
             </div>
         </div>
     </div>
 </div>
-<!--script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"
-        integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
-        crossorigin="anonymous"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"
-        integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
-        crossorigin="anonymous"></script>
-<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"
-        integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
-        crossorigin="anonymous"></script-->
 <script>
     <%@include file="../resources/js/scriptLecturer.js"%>
 </script>

@@ -1,5 +1,7 @@
 package com.springapp.mvc.database;
 
+import lombok.AllArgsConstructor;
+
 import javax.persistence.*;
 
 @Entity

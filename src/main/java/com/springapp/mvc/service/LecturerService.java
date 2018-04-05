@@ -22,8 +22,15 @@ public class LecturerService {
         return lecturerDAO.getListOfLecturers();
     }
 
-    public Lecturer addLecturer(Lecturer lecturer) {
+    public void addLecturer(Lecturer lecturer) {
         lecturerDAO.addLecturer(lecturer);
-        return lecturer;
+    }
+
+    public void updateLecturer(int id, Lecturer lecturer){
+        lecturerDAO.updateLecturer(id, lecturer);
+    }
+
+    public void deleteLecturer(int id){
+        lecturerDAO.deleteLecturer(id);
     }
 }

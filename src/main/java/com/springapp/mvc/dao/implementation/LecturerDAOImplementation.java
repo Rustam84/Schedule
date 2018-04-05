@@ -9,7 +9,7 @@ import org.springframework.stereotype.Repository;
 import java.util.List;
 
 @Repository
-public class LecturerDAOImplementation implements LecturerDAO{
+public class LecturerDAOImplementation implements LecturerDAO {
 
     @Autowired
     private SessionFactory sessionFactory;
@@ -24,5 +24,18 @@ public class LecturerDAOImplementation implements LecturerDAO{
     @Override
     public void addLecturer(Lecturer lecturer) {
         sessionFactory.getCurrentSession().save(lecturer);
+    }
+
+    @Override
+    public void updateLecturer(int id, Lecturer lecturer) {
+        Lecturer newLecturer = sessionFactory.getCurrentSession().get(Lecturer.class, id);
+        newLecturer.setName(lecturer.getName());
+        newLecturer.setSurname(lecturer.getSurname());
+        sessionFactory.getCurrentSession().merge(newLecturer);
+    }
+
+    @Override
+    public void deleteLecturer(int id) {
+        sessionFactory.getCurrentSession().delete(sessionFactory.getCurrentSession().get(Lecturer.class, id));
     }
 }

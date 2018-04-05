@@ -22,29 +22,90 @@ $("#button4").click(function () {
     $("#blockLecturer3").css('display', 'none');
     $("#blockLecturer4").css('display', 'block');
 });
-$("input[type=radio][name=update]").change(function () {
-    var id = this.value;
-    $("#idUpdate").val(id);
-    $("#surnameUpdate").val($("#surnameUpdate" + id).text());
-    $("#nameUpdate").val($("#nameUpdate" + id).text());
-});
-$("input[type=radio][name=delete]").change(function () {
-    var id = this.value;
-    $("#idDelete").val(id);
-    $("#surnameDelete").val($("#surnameDelete" + id).text());
-    $("#nameDelete").val($("#nameDelete" + id).text());
-});
-
 function fillUpdateInputs(id) {
     $("#idUpdate").val(id);
     $("#surnameUpdate").val($("#surnameUpdate" + id).text());
     $("#nameUpdate").val($("#nameUpdate" + id).text());
 }
-
+function fillDeleteInputs(id) {
+    $("#idDelete").val(id);
+    $("#surnameDelete").val($("#surnameDelete" + id).text());
+    $("#nameDelete").val($("#nameDelete" + id).text());
+}
 $(document).ready(function () {
+    $("#successAdd").hide();
+    $("#successUpdate").hide();
+    $("#successDelete").hide();
     updateTables();
 });
-
+$("#addLecturer").click(function () {
+    var surname = $("#surname").val();
+    var name = $("#name").val();
+    var dataToSend = {
+        'surname' : surname,
+        'name' : name
+    };
+    $.ajax({
+        type: "GET",
+        url: "/lecturer/add",
+        data: dataToSend,
+        success: function(){
+            $("#successAdd").show();
+            window.setTimeout(function(){
+                $('#successAdd').hide();
+            },2300);
+            updateTables();
+            $("#surname").val("");
+            var name = $("#name").val("");
+        }
+    })
+});
+$("#updateLecturer").click(function () {
+    var id = $("#idUpdate").val();
+    var surname = $("#surnameUpdate").val();
+    var name = $("#nameUpdate").val();
+    var dataToSend = {
+        'id' : id,
+        'surname' : surname,
+        'name' : name
+    };
+    $.ajax({
+        type: "GET",
+        url: "/lecturer/update",
+        data: dataToSend,
+        success: function(){
+            $("#successUpdate").show();
+            window.setTimeout(function(){
+                $('#successUpdate').hide();
+            },2300);
+            updateTables();
+            $("#idUpdate").val("");
+            $("#surnameUpdate").val("");
+            $("#nameUpdate").val("");
+        }
+    })
+});
+$("#deleteLecturer").click(function () {
+    var id = $("#idDelete").val();
+    var dataToSend = {
+        'id' : id
+    };
+    $.ajax({
+        type: "GET",
+        url: "/lecturer/delete",
+        data: dataToSend,
+        success: function(){
+            $("#successDelete").show();
+            window.setTimeout(function(){
+                $('#successDelete').hide();
+            },2300);
+            updateTables();
+            $("#idDelete").val("");
+            $("#surnameDelete").val("");
+            $("#nameDelete").val("");
+        }
+    })
+});
 function updateTables() {
     $.ajax({
         type: "GET",
@@ -87,11 +148,11 @@ function updateTables() {
 
                 tableUpdate += "<tr><td>" + value.id + "</td><td id = 'surnameUpdate" + value.id + "'>" + value.surname +
                     "</td><td id = 'nameUpdate" + value.id + "'>" + value.name + "</td><td><label class='btn btn-secondary btn-sm'>" +
-                    " <input onchange='fillUpdateInputs(" + value.id + ")' type='radio' value='" + value.id + "'> Update</label></td></tr>";
+                    " <input onchange='fillUpdateInputs(" + value.id + ")' type='radio' name='update' value='" + value.id + "'> Update</label></td></tr>";
 
                 tableDelete += "<tr><td>" + value.id + "</td><td id = 'surnameDelete" + value.id + "'>" + value.surname +
                     "</td><td id = 'nameDelete" + value.id + "'>" + value.name + "</td><td><label class='btn btn-secondary btn-sm'>" +
-                    " <input onchange='fillDeleteInputs(" + value.id + ")' type='radio'  value='" + value.id + "'> Delete</label></td></tr>";
+                    " <input onchange='fillDeleteInputs(" + value.id + ")' type='radio' name='update'  value='" + value.id + "'> Delete</label></td></tr>";
             });
             tableShow += "</tbody></table>";
             tableUpdate += "</tbody></table>";
