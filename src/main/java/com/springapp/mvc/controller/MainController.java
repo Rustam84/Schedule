@@ -25,7 +25,7 @@ public class MainController {
 			case "subject":
                 return "indexSubject";
             case "schedule":
-                return "indexSchedule";
+                return "indexPair";
             case "cabinet":
                 return "indexCabinet";
             case "group":

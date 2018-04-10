@@ -26,13 +26,13 @@ public class LecturerController {
     }
 
     @GetMapping(value = "/add")
-    public void addNewLecturer(@RequestParam("surname") String surname, @RequestParam("name") String name){
-        lecturerService.addLecturer(new Lecturer(surname, name));
+    public void addNewLecturer(@ModelAttribute("lecturer") Lecturer lecturer){
+        lecturerService.addLecturer(lecturer);
     }
 
     @GetMapping(value = "/update")
-    public void updateLecturer(@RequestParam("id") int id, @RequestParam("surname") String surname, @RequestParam("name") String name){
-        lecturerService.updateLecturer(id, new Lecturer(surname, name));
+    public void updateLecturer(@RequestParam("id") int id, @ModelAttribute("lecturer") Lecturer lecturer){
+        lecturerService.updateLecturer(id, lecturer);
     }
 
     @GetMapping(value = "/delete")

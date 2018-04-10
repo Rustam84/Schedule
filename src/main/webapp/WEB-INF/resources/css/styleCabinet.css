@@ -1,0 +1,12 @@
+#blockCabinetShow{
+    display:block;
+}
+#blockCabinetAdd{
+    display:none;
+}
+#blockCabinetUpdate{
+    display:none;
+}
+#blockCabinetDelete{
+    display:none;
+}

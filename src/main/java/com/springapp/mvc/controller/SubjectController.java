@@ -2,10 +2,7 @@ package com.springapp.mvc.controller;
 
 import com.springapp.mvc.database.Subject;
 import com.springapp.mvc.service.SubjectService;
-import org.springframework.web.bind.annotation.GetMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
@@ -25,13 +22,13 @@ public class SubjectController {
     }
 
     @GetMapping(value = "/add")
-    public void addLecturer(@RequestParam("name") String name, @RequestParam("abbreviation") String abbreviation){
-        subjectService.addSubject(new Subject(name, abbreviation));
+    public void addLecturer(@ModelAttribute("subject") Subject subject){
+        subjectService.addSubject(subject);
     }
 
     @GetMapping(value = "/update")
-    public void updateLecturer(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("abbreviation") String abbreviation){
-        subjectService.updateSubject(id, new Subject(name, abbreviation));
+    public void updateLecturer(@RequestParam("id") int id, @ModelAttribute("subject") Subject subject){
+        subjectService.updateSubject(id, subject);
     }
 
     @GetMapping(value = "/delete")

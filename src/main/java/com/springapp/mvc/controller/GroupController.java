@@ -3,6 +3,7 @@ package com.springapp.mvc.controller;
 import com.springapp.mvc.database.Group;
 import com.springapp.mvc.enums.Language;
 import com.springapp.mvc.service.GroupService;
+import org.springframework.web.bind.annotation.ModelAttribute;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
@@ -28,13 +29,13 @@ public class GroupController {
     }
 
     @RequestMapping(value = "/add")
-    public void addGroup(@RequestParam("name") String name, @RequestParam("language") Language language, @RequestParam("numberOfStudents") int numberOfStudents){
-        groupService.addGroup(new Group(name, language, numberOfStudents ));
+    public void addGroup(@ModelAttribute("group") Group group){
+        groupService.addGroup(group);
     }
 
     @RequestMapping(value = "/update")
-    public void updateGroup(@RequestParam("id") int id, @RequestParam("name") String name, @RequestParam("language") Language language, @RequestParam("numberOfStudents") int numberOfStudents){
-        groupService.updateGroup(id, new Group(name, language, numberOfStudents ));
+    public void updateGroup(@RequestParam("id") int id, @ModelAttribute("group") Group group){
+        groupService.updateGroup(id, group);
     }
     @RequestMapping(value = "/delete")
     public void deleteGroup(@RequestParam("id") int id){
