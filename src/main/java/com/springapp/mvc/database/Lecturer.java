@@ -10,7 +10,7 @@ public class Lecturer {
     @Id
     @Column(name = "id_lecturer")
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Integer id;
+    private int id;
 
     @Column(name = "surname")
     private String surname;
@@ -26,11 +26,11 @@ public class Lecturer {
         this.name = name;
     }
 
-    public Integer getId() {
+    public int getId() {
         return id;
     }
 
-    public void setId(Integer id) {
+    public void setId(int id) {
         this.id = id;
     }
 
