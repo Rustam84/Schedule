@@ -1,30 +1,25 @@
 package com.springapp.mvc.database;
 
-import lombok.AllArgsConstructor;
-
 import javax.persistence.*;
 import java.util.HashSet;
 import java.util.Set;
 
 @Entity
-@Table(name = "lecturer")
-public class Lecturer {
-    @Id
-    @Column(name = "id_lecturer")
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private int id;
+@Table(name = "day")
+public class Day {
 
-    @Column(name = "surname")
-    private String surname;
+    @Id
+    @Column(name = "id_day")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
+    public int id;
 
     @Column(name = "name")
-    private String name;
+    public String name;
 
-    public Lecturer() {
+    public Day() {
     }
 
-    public Lecturer(String surname, String name) {
-        this.surname = surname;
+    public Day(String name) {
         this.name = name;
     }
 
@@ -34,14 +29,6 @@ public class Lecturer {
 
     public void setId(int id) {
         this.id = id;
-    }
-
-    public String getSurname() {
-        return surname;
-    }
-
-    public void setSurname(String surname) {
-        this.surname = surname;
     }
 
     public String getName() {

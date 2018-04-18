@@ -56,7 +56,7 @@ $("#addLecturer").click(function () {
             },2300);
             updateTables();
             $("#surname").val("");
-            var name = $("#name").val("");
+            $("#name").val("");
         }
     })
 });

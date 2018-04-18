@@ -40,4 +40,9 @@ public class SubjectDAOImplementation implements SubjectDAO {
     public void deleteSubject(int id) {
         sessionFactory.getCurrentSession().delete(sessionFactory.getCurrentSession().get(Subject.class, id));
     }
+
+    @Override
+    public Subject getSubjectById(int id) {
+        return sessionFactory.getCurrentSession().get(Subject.class, id);
+    }
 }

@@ -37,4 +37,14 @@ public class MainController {
 		}
 	}
 
+	@RequestMapping("/mainCell")
+	public String toMain(){
+		return "mainCell";
+	}
+
+    @RequestMapping("/filterCell")
+    public String toFilter(){
+        return "filterCell";
+    }
+
 }

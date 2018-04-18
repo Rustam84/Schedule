@@ -1,0 +1,12 @@
+#blockPairShow{
+    display:block;
+}
+#blockPairAdd{
+    display:none;
+}
+#blockPairUpdate{
+    display:none;
+}
+#blockPairDelete{
+    display:none;
+}

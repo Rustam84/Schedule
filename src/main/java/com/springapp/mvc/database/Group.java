@@ -3,6 +3,8 @@ package com.springapp.mvc.database;
 import com.springapp.mvc.enums.Language;
 
 import javax.persistence.*;
+import java.util.HashSet;
+import java.util.Set;
 
 @Entity
 @Table(name="groupa")

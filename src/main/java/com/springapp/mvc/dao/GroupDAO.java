@@ -12,4 +12,6 @@ public interface GroupDAO {
     public void updateGroup(int id, Group group);
 
     public void deleteGroup(int id);
+
+    public Group getGroupById(int id);
 }

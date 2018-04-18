@@ -41,4 +41,9 @@ public class LecturerDAOImplementation implements LecturerDAO {
     public void deleteLecturer(int id) {
         sessionFactory.getCurrentSession().delete(sessionFactory.getCurrentSession().get(Lecturer.class, id));
     }
+
+    @Override
+    public Lecturer getLectureById(int id) {
+        return sessionFactory.getCurrentSession().get(Lecturer.class, id);
+    }
 }

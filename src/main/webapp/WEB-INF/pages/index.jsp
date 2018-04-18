@@ -6,8 +6,8 @@
         <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
     </head>
 <body>
-<div class="container h-100 align-middle">
-    <div class="row">
+<div class="container h-100">
+    <div class="row justify-content-md-center">
         <div class="col-6">
             <form action="mainRedirect">
                 <fieldset class="form-group">

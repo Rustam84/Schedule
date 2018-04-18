@@ -9,4 +9,5 @@ public interface SubjectDAO {
     public void addSubject(Subject subject);
     public void updateSubject(int id, Subject subject);
     public void deleteSubject(int id);
+    public Subject getSubjectById(int id);
 }

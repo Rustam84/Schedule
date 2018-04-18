@@ -41,4 +41,9 @@ public class GroupDAOImplementation implements GroupDAO {
     public void deleteGroup(int id) {
         sessionFactory.getCurrentSession().delete(sessionFactory.getCurrentSession().get(Group.class, id));
     }
+
+    @Override
+    public Group getGroupById(int id) {
+        return sessionFactory.getCurrentSession().get(Group.class, id);
+    }
 }
