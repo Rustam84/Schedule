@@ -16,17 +16,32 @@ function fillForms() {
             });
         }
     });
+
+    $.ajax({
+        type: "GET",
+        url: "/group/getAll",
+        success: function (result) {
+            $.each(result, function (key, value) {
+                $('#group').append($('<option>', {
+                    value: value.id,
+                    text: value.name
+                }));
+            });
+        }
+    });
 }
 
 $("#lecturer").change(function () {
     var dataToSend = {
         'idLecturer': $("#lecturer").val()
     };
+    var lecturer = $("#lecturer option:selected").text();
     $.ajax({
         type: "GET",
         url: "/cell/getCellsByLecturer",
         data: dataToSend,
         success: function (result) {
+            $("#header").text("Расписание для преподавателя " + lecturer);
             $('td[type="content"]').each(function(){
                 $(this).text("");
             });
@@ -39,6 +54,36 @@ $("#lecturer").change(function () {
                     $('td[day="' + value.day + '"][pair="' + value.pair + '"]').each(function () {
                         $(this).append(cell);
                     });
+
+            });
+        }
+    });
+});
+
+$("#group").change(function () {
+    var dataToSend = {
+        'idLecturer': $("#group").val()
+    };
+    var group = $("#group option:selected").text();
+    $.ajax({
+        type: "GET",
+        url: "/cell/getCellsByLecturer",
+        data: dataToSend,
+        success: function (result) {
+            $("#header").text("Расписание для группы " + group);
+            $('td[type="content"]').each(function(){
+                $(this).text("");
+            });
+            $.each(result, function (key, value) {
+                var cell = "";
+                cell += "<div class ='rounded cell'>";
+                cell += value.name + "<br />";
+                cell += value.subject + "<br />";
+                cell += value.groups;
+                cell += "</div>";
+                $('td[day="' + value.day + '"][pair="' + value.pair + '"]').each(function () {
+                    $(this).append(cell);
+                });
 
             });
         }

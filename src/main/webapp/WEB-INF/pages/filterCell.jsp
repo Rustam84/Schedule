@@ -17,20 +17,25 @@
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
 </head>
 <body>
-<div class="row">
+<div class="row" style="margin: 10px;">
     <div class="col-3">
         <div class="form-group">
             <label>Выберите преподавателя</label>
             <select class="form-control" id="lecturer"></select>
         </div>
+        <div class="form-group">
+            <label>Выберите преподавателя</label>
+            <select class="form-control" id="group"></select>
+        </div>
     </div>
     <div class="col-9">
-        <div id="header"></div>
+        <div id="header" class="h2"></div>
         <table class='table table-bordered' id="schedule"><thead></thead><tbody></tbody></table>
     </div>
 </div>
-<script>
-    <%@include file="../resources/js/scriptFilterCell.js"%>
-</script>
+<!--script>
+    <%--@include file="../resources/js/scriptFilterCell.js"%--%>
+</script-->
+<script src="../resources/js/scriptFilterCell.js"></script>
 </body>
 </html>

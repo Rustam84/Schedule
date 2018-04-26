@@ -45,14 +45,19 @@ $(document).ready(function () {
     fillForms();
     updateTables();
 });
+
 $("#addCell").click(function () {
     var lecturer = $("#addCellLecturer").val();
     var subject = $("#addCellSubject").val();
     var group = $("#addCellGroup").val();
+    var type = $("#type").val();
+    var number = $("#number").val();
     var dataToSend = {
         'lecturer': lecturer,
         'subject': subject,
-        'group': group.toString()
+        'group': group.toString(),
+        'type': type,
+        'number' : number
     };
     $.ajax({
         type: "GET",
@@ -98,6 +103,7 @@ $("#updatePair").click(function () {
         }
     })
 });
+
 $("#deleteCell").click(function () {
     var id = $("#idDelete").val();
     var dataToSend = {
@@ -137,17 +143,17 @@ function updateTables() {
                 "                    </thead>\n" +
                 "                    <tbody>";
 
-           /* var tableUpdate = "<table class=\"table table-bordered\">\n" +
-                "                    <thead class=\"thead-dark\">\n" +
-                "                    <tr>\n" +
-                "                        <th>ID</th>\n" +
-                "                        <th>Number</th>\n" +
-                "                        <th>Begin</th>\n" +
-                "                        <th>End</th>\n" +
-                "                        <th>Update</th>\n" +
-                "                    </tr>\n" +
-                "                    </thead>\n" +
-                "                    <tbody>";*/
+            /* var tableUpdate = "<table class=\"table table-bordered\">\n" +
+                 "                    <thead class=\"thead-dark\">\n" +
+                 "                    <tr>\n" +
+                 "                        <th>ID</th>\n" +
+                 "                        <th>Number</th>\n" +
+                 "                        <th>Begin</th>\n" +
+                 "                        <th>End</th>\n" +
+                 "                        <th>Update</th>\n" +
+                 "                    </tr>\n" +
+                 "                    </thead>\n" +
+                 "                    <tbody>";*/
 
             var tableDelete = "<table class=\"table table-bordered\">\n" +
                 "                    <thead class=\"thead-dark\">\n" +
@@ -164,11 +170,11 @@ function updateTables() {
             $.each(result, function (key, value) {
                 tableShow += "<tr><td>" + value.id + "</td><td>" + value.name + "</td><td>" + value.subject + "</td><td>" + value.groups + "</td></tr>";
 
-               /* tableUpdate += "<tr><td>" + value.id + "</td><td id = 'numberUpdate" + value.id + "'>" + value.number +
-                    "</td><td id = 'beginUpdate" + value.id + "'>" + value.begin + "</td>" +
-                    "</td><td id = 'endUpdate" + value.id + "'>" + value.end + "</td>" +
-                    "<td><label class='btn btn-secondary btn-sm'>" +
-                    " <input onchange='fillUpdateInputs(" + value.id + ")' type='radio' name='update' value='" + value.id + "'> Update</label></td></tr>";*/
+                /* tableUpdate += "<tr><td>" + value.id + "</td><td id = 'numberUpdate" + value.id + "'>" + value.number +
+                     "</td><td id = 'beginUpdate" + value.id + "'>" + value.begin + "</td>" +
+                     "</td><td id = 'endUpdate" + value.id + "'>" + value.end + "</td>" +
+                     "<td><label class='btn btn-secondary btn-sm'>" +
+                     " <input onchange='fillUpdateInputs(" + value.id + ")' type='radio' name='update' value='" + value.id + "'> Update</label></td></tr>";*/
 
                 tableDelete += "<tr><td>" + value.id + "</td><td id = 'nameDelete" + value.id + "'>" + value.name +
                     "</td><td id = 'subjectDelete" + value.id + "'>" + value.subject + "</td>" +

@@ -68,6 +68,14 @@
                         <label>Введите группы </label>
                         <span id = "addGroupList"></span>
                     </div>
+                    <div class="form-group">
+                        <label for="type">Введите тип пары</label>
+                        <input type="text" id="type" name="text" class="form-control">
+                    </div>
+                    <div class="form-group">
+                        <label for="number">Введите количество пар в неделю</label>
+                        <input type="text" id="number" name="number" class="form-control" value="1" min="1" max="5">
+                    </div>
                 </form>
                 <button class="btn btn-primary" id="addCell">Добавить</button>
             </div>

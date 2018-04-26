@@ -4,7 +4,7 @@
     height: 100%;
 }
 
-.cell{
+.cell {
     width: 90%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -14,7 +14,7 @@
     margin-top: 30px;
 }
 
-.tableCell{
+.tableCell {
     width: 90%;
     padding-top: 10px;
     padding-bottom: 10px;
@@ -22,4 +22,33 @@
     margin-right: auto;
     text-align: center;
     margin-top: 5px;
+    color: #0c5460;
+    background-color: #d1ecf1;
+    border-color: #bee5eb
+}
+
+.tableSuccessCell {
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+    color: #155724;
+    background-color: #d4edda;
+    border-color: #c3e6cb
+}
+
+.tableFailCell {
+    width: 90%;
+    padding-top: 10px;
+    padding-bottom: 10px;
+    margin-left: auto;
+    margin-right: auto;
+    text-align: center;
+    margin-top: 5px;
+    color: #721c24;
+    background-color: #f8d7da;
+    border-color: #f5c6cb
 }

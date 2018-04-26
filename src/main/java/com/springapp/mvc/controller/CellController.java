@@ -22,37 +22,59 @@ public class CellController {
     }
 
     @RequestMapping("/getCellsWithoutDay")
-    public List<CellDTO> getCellsWithoutDay(){
+    public List<CellDTO> getCellsWithoutDay() {
         return cellService.getCellsWithoutDay();
     }
 
     @RequestMapping("/getFilledCells")
-    public List<CellFullDTO> getFilledCells(){
+    public List<CellFullDTO> getFilledCells() {
         return cellService.getCells();
     }
 
     @RequestMapping("/getCellsByLecturer")
-    public List<CellFullDTO> getCellsByLecturer(@RequestParam("idLecturer") int idLecturer){
+    public List<CellFullDTO> getCellsByLecturer(@RequestParam("idLecturer") int idLecturer) {
         return cellService.getCellsWithLecturer(idLecturer);
     }
 
+    @RequestMapping("/getCellsByGroup")
+    public List<CellFullDTO> getCellsByGroup(@RequestParam("idGroup") int idGroup) {
+        return cellService.getCellsWithGroup(idGroup);
+    }
+
     @RequestMapping("/add")
-    public void addCell(@RequestParam("lecturer") int idLecturer, @RequestParam("subject") int idSubject, @RequestParam("group") String idGroups){
-        cellService.addCell(idLecturer, idSubject, idGroups);
+    public void addCell(@RequestParam("lecturer") int idLecturer, @RequestParam("subject") int idSubject, @RequestParam("group") String idGroups, @RequestParam("type") String type, @RequestParam("number") int number) {
+        for (int i = 1; i <= number; i++) {
+            cellService.addCell(idLecturer, idSubject, idGroups, type);
+        }
+    }
+
+    @RequestMapping("/getById")
+    public CellFullDTO getById(@RequestParam("id") int id) {
+        return cellService.getCellById(id);
     }
 
     @RequestMapping("/delete")
-    public void deleteCell(@RequestParam("id") int id){
+    public void deleteCell(@RequestParam("id") int id) {
         cellService.deleteCell(id);
     }
 
     @PostMapping("/updateDayAndPair")
-    public void updateDayAndPair(@RequestParam("idCell") int idCell, @RequestParam("idPair") int idPair, @RequestParam("idDay") int idDay){
+    public void updateDayAndPair(@RequestParam("idCell") int idCell, @RequestParam("idPair") int idPair, @RequestParam("idDay") int idDay) {
         cellService.updateDayAndPair(idCell, idDay, idPair);
     }
 
     @PostMapping("/removeDayAndPair")
-    public void removeDayAndPair(@RequestParam("idCell") int idCell){
+    public void removeDayAndPair(@RequestParam("idCell") int idCell) {
         cellService.removeDayAndPair(idCell);
+    }
+
+    @PostMapping("/updateFullCell")
+    public void updateFullCell(@RequestParam("idCell") int idCell,
+                               @RequestParam("idLecturer") int idLecturer,
+                               @RequestParam("idSubject") int idSubject,
+                               @RequestParam("type") String type,
+                               @RequestParam("parity") String parity,
+                               @RequestParam("idCabinet") int idCabinet) {
+        cellService.updateFullCell(idCell, idLecturer, idSubject, type, parity, idCabinet);
     }
 }

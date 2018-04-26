@@ -1,27 +1,28 @@
-$( "#buttonShowCabinet" ).click(function() {
-    $("#blockCabinetShow").css('display','block');
-    $("#blockCabinetAdd").css('display','none');
-    $("#blockCabinetUpdate").css('display','none');
-    $("#blockCabinetDelete").css('display','none');
+$("#buttonShowCabinet").click(function () {
+    $("#blockCabinetShow").css('display', 'block');
+    $("#blockCabinetAdd").css('display', 'none');
+    $("#blockCabinetUpdate").css('display', 'none');
+    $("#blockCabinetDelete").css('display', 'none');
 });
-$( "#buttonAddCabinet" ).click(function() {
-    $("#blockCabinetShow").css('display','none');
-    $("#blockCabinetAdd").css('display','block');
-    $("#blockCabinetUpdate").css('display','none');
-    $("#blockCabinetDelete").css('display','none');
+$("#buttonAddCabinet").click(function () {
+    $("#blockCabinetShow").css('display', 'none');
+    $("#blockCabinetAdd").css('display', 'block');
+    $("#blockCabinetUpdate").css('display', 'none');
+    $("#blockCabinetDelete").css('display', 'none');
 });
-$( "#buttonUpdateCabinet" ).click(function() {
-    $("#blockCabinetShow").css('display','none');
-    $("#blockCabinetAdd").css('display','none');
-    $("#blockCabinetUpdate").css('display','block');
-    $("#blockCabinetDelete").css('display','none');
+$("#buttonUpdateCabinet").click(function () {
+    $("#blockCabinetShow").css('display', 'none');
+    $("#blockCabinetAdd").css('display', 'none');
+    $("#blockCabinetUpdate").css('display', 'block');
+    $("#blockCabinetDelete").css('display', 'none');
 });
-$( "#buttonDeleteCabinet" ).click(function() {
-    $("#blockCabinetShow").css('display','none');
-    $("#blockCabinetAdd").css('display','none');
-    $("#blockCabinetUpdate").css('display','none');
-    $("#blockCabinetDelete").css('display','block');
+$("#buttonDeleteCabinet").click(function () {
+    $("#blockCabinetShow").css('display', 'none');
+    $("#blockCabinetAdd").css('display', 'none');
+    $("#blockCabinetUpdate").css('display', 'none');
+    $("#blockCabinetDelete").css('display', 'block');
 });
+
 function fillUpdateInputs(id) {
     $("#idUpdate").val(id);
     $("#numberUpdate").val($("#numberUpdate" + id).text());
@@ -29,10 +30,12 @@ function fillUpdateInputs(id) {
     $("#capacityUpdate").val($("#capacityUpdate" + id).text());
     $("input[name=typeUpdate][value=" + $("#typeUpdate" + id).text() + "]").prop('checked', true);
 }
+
 function fillDeleteInputs(id) {
     $("#idDelete").val(id);
     $("#numberDelete").val($("#numberDelete" + id).text() + "/" + $("#blockDelete" + id).text());
 }
+
 $(document).ready(function () {
     $("#successAdd").hide();
     $("#successUpdate").hide();
@@ -45,20 +48,20 @@ $("#addCabinet").click(function () {
     var capacity = $("#capacity").val();
     var type = $('input[name=type]:checked').val();
     var dataToSend = {
-        'number' : number,
-        'block' : block,
-        'capacity' : capacity,
-        'type':type
+        'number': number,
+        'block': block,
+        'capacity': capacity,
+        'type': type
     };
     $.ajax({
         type: "GET",
         url: "/cabinet/add",
         data: dataToSend,
-        success: function(){
+        success: function () {
             $("#successAdd").show();
-            window.setTimeout(function(){
+            window.setTimeout(function () {
                 $('#successAdd').hide();
-            },2300);
+            }, 2300);
             updateTables();
             $("#number").val("");
             $("#block").val("");
@@ -73,21 +76,21 @@ $("#updateCabinet").click(function () {
     var capacity = $("#capacityUpdate").val();
     var type = $('input[name=typeUpdate]:checked').val();
     var dataToSend = {
-        'id' : id,
-        'number' : number,
-        'block' : block,
-        'capacity' : capacity,
-        'type' : type
+        'id': id,
+        'number': number,
+        'block': block,
+        'capacity': capacity,
+        'type': type
     };
     $.ajax({
         type: "GET",
         url: "/cabinet/update",
         data: dataToSend,
-        success: function(){
+        success: function () {
             $("#successUpdate").show();
-            window.setTimeout(function(){
+            window.setTimeout(function () {
                 $('#successUpdate').hide();
-            },2300);
+            }, 2300);
             updateTables();
             $("#idUpdate").val("");
             $("#numberUpdate").val("");
@@ -99,24 +102,25 @@ $("#updateCabinet").click(function () {
 $("#deleteCabinet").click(function () {
     var id = $("#idDelete").val();
     var dataToSend = {
-        'id' : id
+        'id': id
     };
     $.ajax({
         type: "GET",
         url: "/cabinet/delete",
         data: dataToSend,
-        success: function(){
+        success: function () {
             $("#successDelete").show();
-            window.setTimeout(function(){
+            window.setTimeout(function () {
                 $('#successDelete').hide();
-            },2300);
+            }, 2300);
             updateTables();
             $("#idDelete").val("");
             $("#numberDelete").val("");
         }
     })
 });
-function updateTables(){
+
+function updateTables() {
     $.ajax({
         type: "GET",
         url: "/cabinet/getAll",
