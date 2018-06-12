@@ -10,7 +10,7 @@
 <head>
     <title>Filter</title>
     <style type="text/css">
-        <%@include file="../resources/css/styleFilterCell.css"%>
+        <%@include file="../resources/static/css/styleFilterCell.css"%>
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -24,8 +24,14 @@
             <select class="form-control" id="lecturer"></select>
         </div>
         <div class="form-group">
-            <label>Выберите преподавателя</label>
+            <label>Выберите группу</label>
             <select class="form-control" id="group"></select>
+        </div>
+        <div class="form-check">
+            <input class="form-check-input" type="checkbox" id="showConflicts">
+            <label class="form-check-label" for="showConflicts">
+                Показывать конфликтные ячейки
+            </label>
         </div>
     </div>
     <div class="col-9">
@@ -36,6 +42,6 @@
 <!--script>
     <%--@include file="../resources/js/scriptFilterCell.js"%--%>
 </script-->
-<script src="../resources/js/scriptFilterCell.js"></script>
+<script src="../resources/static/js/scriptFilterCell.js"></script>
 </body>
 </html>

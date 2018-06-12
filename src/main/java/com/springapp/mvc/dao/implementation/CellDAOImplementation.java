@@ -139,4 +139,61 @@ public class CellDAOImplementation implements CellDAO {
                 .setParameter("parity", parity)
                 .list().size();
     }
+
+    @Override
+    public int getCellByCabinetAndPair(int idCabinet, int idDay, int idPair, String parity) {
+        Cabinet cabinet = sessionFactory.getCurrentSession().load(Cabinet.class, idCabinet);
+        Day day = sessionFactory.getCurrentSession().load(Day.class, idDay);
+        Pair pair = sessionFactory.getCurrentSession().load(Pair.class, idPair);
+        String query = "select c from Cell c " +
+                "where c.pair = :pair and c.day = :day and c.cabinet = :cabinet ";
+        if(parity.equals("0")){
+            query += "and (c.parity = :parity or c.parity is not null)";
+        } else {
+            query += "and (c.parity = :parity or c.parity = '0')";
+        }
+        return sessionFactory.getCurrentSession()
+                .createQuery(query)
+                .setParameter("pair", pair)
+                .setParameter("day", day)
+                .setParameter("cabinet", cabinet)
+                .setParameter("parity", parity)
+                .list().size();
+    }
+
+    @Override
+    public int getCellByGroupAndPair(int idGroup, int idDay, int idPair, String parity) {
+        Group group = sessionFactory.getCurrentSession().load(Group.class, idGroup);
+        Day day = sessionFactory.getCurrentSession().load(Day.class, idDay);
+        Pair pair = sessionFactory.getCurrentSession().load(Pair.class, idPair);
+        String query = "select c from Cell c join c.groupSet as gr" +
+                " where c.pair = :pair and c.day =:day and gr.id = :idGroup ";
+        if(parity.equals("0")){
+            query += "and (c.parity = :parity or c.parity is not null)";
+        } else {
+            query += "and (c.parity = :parity or c.parity = '0')";
+        }
+        return sessionFactory.getCurrentSession()
+                .createQuery(query)
+                .setParameter("pair", pair)
+                .setParameter("day", day)
+                .setParameter("idGroup", idGroup)
+                .setParameter("parity", parity)
+                .list().size();
+    }
+
+    @Override
+    public List<Cell> getCellsByGroupAndPair(int idGroup, int idDay, int idPair) {
+        Group group = sessionFactory.getCurrentSession().load(Group.class, idGroup);
+        Day day = sessionFactory.getCurrentSession().load(Day.class, idDay);
+        Pair pair = sessionFactory.getCurrentSession().load(Pair.class, idPair);
+        String query = "select c from Cell c join c.groupSet as gr" +
+                " where c.pair = :pair and c.day =:day and gr.id = :idGroup";
+        return sessionFactory.getCurrentSession()
+                .createQuery(query)
+                .setParameter("pair", pair)
+                .setParameter("day", day)
+                .setParameter("idGroup", idGroup)
+                .list();
+    }
 }

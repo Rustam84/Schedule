@@ -10,7 +10,7 @@
 <head>
     <title>Cabinet</title>
     <style type="text/css">
-        <%@include file="../resources/css/styleCabinet.css"%>
+        <%@include file="../resources/static/css/styleCabinet.css"%>
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -123,7 +123,7 @@
     </div>
 </div>
 <script>
-    <%@include file="../resources/js/scriptCabinet.js"%>
+    <%@include file="../resources/static/js/scriptCabinet.js"%>
 </script>
 </body>
 </html>

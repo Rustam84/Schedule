@@ -29,4 +29,10 @@ public interface CellDAO {
     public void deleteCell(int id);
 
     public int getCellByLecturerAndPair(int idLecturer, int idDay, int idPair, String parity);
+
+    public int getCellByCabinetAndPair(int idCabinet, int idDay, int idPair, String parity);
+
+    public int getCellByGroupAndPair(int idGroup, int idDay, int idPair, String parity);
+
+    public List<Cell> getCellsByGroupAndPair(int idGroup, int idDay, int idPair);
 }

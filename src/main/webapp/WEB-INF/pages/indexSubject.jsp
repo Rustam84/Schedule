@@ -10,7 +10,7 @@
 <head>
     <title>Subject</title>
     <style type="text/css">
-        <%@include file="../resources/css/styleSubject.css"%>
+        <%@include file="../resources/static/css/styleSubject.css"%>
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -100,7 +100,7 @@
     </div>
 </div>
 <script>
-    <%@include file="../resources/js/scriptSubject.js"%>
+    <%@include file="../resources/static/js/scriptSubject.js"%>
 </script>
 </body>
 </html>

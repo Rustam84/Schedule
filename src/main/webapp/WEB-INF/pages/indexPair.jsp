@@ -10,7 +10,7 @@
 <head>
     <title>Pair</title>
     <style type="text/css">
-        <%@include file="../resources/css/stylePair.css"%>
+        <%@include file="../resources/static/css/stylePair.css"%>
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -113,7 +113,7 @@
     </div>
 </div>
 <script>
-    <%@include file="../resources/js/scriptPair.js"%>
+    <%@include file="../resources/static/js/scriptPair.js"%>
 </script>
 </body>
 </html>

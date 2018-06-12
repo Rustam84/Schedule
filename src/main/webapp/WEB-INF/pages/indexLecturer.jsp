@@ -10,7 +10,7 @@
 <head>
     <title>Lecturer</title>
     <style type="text/css">
-        <%@include file="../resources/css/styleLecturer.css"%>
+        <%@include file="../resources/static/css/styleLecturer.css"%>
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -101,7 +101,7 @@
     </div>
 </div>
 <script>
-    <%@include file="../resources/js/scriptLecturer.js"%>
+    <%@include file="../resources/static/js/scriptLecturer.js"%>
 </script>
 </body>
 </html>

@@ -4,12 +4,12 @@ import com.springapp.mvc.database.Cell;
 import com.springapp.mvc.database.dto.CellDTO;
 import com.springapp.mvc.database.dto.CellFullDTO;
 import com.springapp.mvc.service.CellService;
+import org.springframework.http.HttpHeaders;
+import org.springframework.http.MediaType;
 import org.springframework.transaction.annotation.Transactional;
-import org.springframework.web.bind.annotation.PostMapping;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestParam;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
+import java.io.ByteArrayOutputStream;
 import java.util.List;
 
 @RestController
@@ -76,5 +76,16 @@ public class CellController {
                                @RequestParam("parity") String parity,
                                @RequestParam("idCabinet") int idCabinet) {
         cellService.updateFullCell(idCell, idLecturer, idSubject, type, parity, idCabinet);
+    }
+
+    @GetMapping(value = "/getPDF", produces = "application/pdf")
+    public byte[] getPDF() {
+        ByteArrayOutputStream stream = cellService.makePDF();
+        HttpHeaders headers = new HttpHeaders();
+        headers.add("Cache-Control", "no-cache, no-store, must-revalidate");
+        headers.add("Pragma", "no-cache");
+        headers.add("Expires", "0");
+        headers.add("Content-Encoding", "UTF-8");
+        return stream.toByteArray();
     }
 }

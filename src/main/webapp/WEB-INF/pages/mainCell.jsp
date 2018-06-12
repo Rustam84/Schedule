@@ -10,7 +10,7 @@
 <head>
     <title>Main Cell</title>
     <style type="text/css">
-        <%@include file="../resources/css/styleMainCell.css"%>
+        <%@include file="../resources/static/css/styleMainCell.css"%>
     </style>
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
     <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.1.0/js/bootstrap.min.js"
@@ -20,14 +20,13 @@
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
 </head>
 <body>
-<div class="container">
-    <div class="row justify-content-md-center">
-        <div class="col-md-3 slider" ondrop="dropOnMain(event)" ondragover="allowDrop(event)">
-            <div id="cells"></div>
-        </div>
-        <div class="col-md-9 slider">
-            <div id="table"></div>
-        </div>
+<div style="width:98%; margin-left: 1%; margin-right: 1%">
+    <div class="slider" style="width:23%; display: inline-block" ondrop="dropOnMain(event)"
+         ondragover="allowDrop(event)">
+        <div id="cells"></div>
+    </div>
+    <div class="slider slider-x" style="width:75%; display: inline-block">
+        <div id="table"></div>
     </div>
 </div>
 
@@ -58,7 +57,8 @@
                 Группа:
                 <div id="groupsInModal"></div>
                 Кабинет:
-                <div id="cabinetInModal"></div> <br />
+                <div id="cabinetInModal"></div>
+                <br/>
                 <div id="currentStatus"></div>
             </div>
             <div class="modal-footer">
@@ -68,6 +68,26 @@
         </div>
     </div>
 </div>
-<script src="../resources/js/scriptMainCell.js"></script>
+
+<div class="modal fade" id="modalFilter" tabindex="-1" role="dialog" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title">Фильтры для отображения</h5>
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+                <div id="groupFilterInModal"></div>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-secondary" data-dismiss="modal">Закрыть</button>
+                <button type="button" class="btn btn-primary" id="updateFilter">Сохранить изменения</button>
+            </div>
+        </div>
+    </div>
+</div>
+<script src="../resources/static/js/scriptMainCell.js"></script>
 </body>
 </html>

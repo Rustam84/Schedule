@@ -47,8 +47,18 @@ $("#lecturer").change(function () {
             });
             $.each(result, function (key, value) {
                 var cell = "";
-                cell += "<div class ='rounded cell'>";
+                cell += "<div class ='rounded ";
+                if($("#showConflicts").is(":checked")){
+                    if(value.status === "ok"){
+                        cell += "successCell'>";
+                    } else {
+                        cell += "failCell'>";
+                    }
+                } else {
+                    cell += "cell'>";
+                }
                 cell += value.subject + "<br />";
+                cell += value.cabinet + "<br />";
                 cell += value.groups;
                 cell += "</div>";
                     $('td[day="' + value.day + '"][pair="' + value.pair + '"]').each(function () {
@@ -62,12 +72,12 @@ $("#lecturer").change(function () {
 
 $("#group").change(function () {
     var dataToSend = {
-        'idLecturer': $("#group").val()
+        'idGroup': $("#group").val()
     };
     var group = $("#group option:selected").text();
     $.ajax({
         type: "GET",
-        url: "/cell/getCellsByLecturer",
+        url: "/cell/getCellsByGroup",
         data: dataToSend,
         success: function (result) {
             $("#header").text("Расписание для группы " + group);
@@ -76,9 +86,31 @@ $("#group").change(function () {
             });
             $.each(result, function (key, value) {
                 var cell = "";
-                cell += "<div class ='rounded cell'>";
-                cell += value.name + "<br />";
-                cell += value.subject + "<br />";
+                cell += "<div class ='rounded ";
+                if($("#showConflicts").is(":checked")){
+                    if(value.status === "ok"){
+                        cell += "successCell'>";
+                    } else {
+                        cell += "failCell'>";
+                    }
+                } else {
+                    cell += "cell'>";
+                }
+                var lecturerAndCabinet = "";
+                lecturerAndCabinet += value.name;
+                if(value.cabinet != null){
+                    lecturerAndCabinet += " " + value.cabinet;
+                }
+                var subject = "";
+                subject += value.subject + "(" + value.type;
+                if(value.parity == 1){
+                    subject += ", пар";
+                } else if (value.parity == 2){
+                    subject += ", непар";
+                }
+                subject += ")<br />"
+                cell += subject;
+                cell += lecturerAndCabinet + "<br />";
                 cell += value.groups;
                 cell += "</div>";
                 $('td[day="' + value.day + '"][pair="' + value.pair + '"]').each(function () {

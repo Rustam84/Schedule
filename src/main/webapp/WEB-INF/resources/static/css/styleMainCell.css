@@ -1,7 +1,11 @@
 .slider {
     overflow-y: scroll;
-    padding: 2em;
+    padding: 1em;
     height: 100%;
+}
+
+.slider-x {
+    overflow-x: scroll;
 }
 
 .cell {
@@ -51,4 +55,20 @@
     color: #721c24;
     background-color: #f8d7da;
     border-color: #f5c6cb
+}
+
+table.table-bordered{
+    table-layout: fixed;
+    word-wrap: break-word;
+    max-width: 1000%;
+    border:1px solid black;
+    margin-top:20px;
+}
+table.table-bordered > thead > tr > th{
+    border:1px solid black;
+    width: 200px;
+}
+table.table-bordered > tbody > tr > td{
+    border:1px solid black;
+    width: 200px;
 }

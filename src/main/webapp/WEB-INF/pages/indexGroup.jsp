@@ -10,7 +10,7 @@
 <head>
     <title>Group</title>
     <style type="text/css">
-        <%@include file="../resources/css/styleGroup.css"%>
+        <%@include file="../resources/static/css/styleGroup.css"%>
     </style>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css"
           integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -115,7 +115,7 @@
     </div>
 </div>
 <script>
-    <%@include file="../resources/js/scriptGroup.js"%>
+    <%@include file="../resources/static/js/scriptGroup.js"%>
 </script>
 </body>
 </html>
