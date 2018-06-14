@@ -17,6 +17,11 @@ public class MainController {
 	    return "index";
 	}
 
+	@RequestMapping(value = "/login", method = RequestMethod.GET)
+	public String showLoginPage(ModelMap model) {
+		return "login";
+	}
+
 	@RequestMapping(value = "/mainRedirect", method = RequestMethod.GET)
 	public String chooseTable(ModelMap model, @RequestParam("table") String table) {
 		switch(table){

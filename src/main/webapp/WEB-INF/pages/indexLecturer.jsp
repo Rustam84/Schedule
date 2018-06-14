@@ -43,7 +43,7 @@
                 <div class="alert alert-success fade show" id="successAdd">
                     <strong>Успех!</strong> Данные добавлены.
                 </div>
-                <form action="lecturer/add">
+                <form action="lecturer/add" autocomplete="off">
                     <div class="form-group">
                         <label for="surname">Введите фамилию преподавателя </label>
                         <input type="text" id="surname" name="surname" class="form-control">
